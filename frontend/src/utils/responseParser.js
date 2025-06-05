@@ -1,6 +1,19 @@
 export const parseOpenAIResponse = (response) => {
   try {
-    const parsedResponse = typeof response === 'string' ? JSON.parse(response) : response;
+
+    let raw = response;
+
+    // If it's a string, try sanitizing it
+    if (typeof response === 'string') {
+      // Remove invalid control characters and fix common formatting issues
+      raw = response
+        .replace(/\\n/g, "\\n")                       // ensure escaped newlines
+        .replace(/\\'/g, "'")                         // unescape single quotes
+        .replace(/“|”/g, '"')                         // fancy quotes → straight
+        .replace(/‘|’/g, "'");                        // fancy apostrophes → normal
+    }
+
+    const parsedResponse = typeof raw === 'string' ? JSON.parse(raw) : raw;
     
     return {
       summary: parsedResponse.Summary,
