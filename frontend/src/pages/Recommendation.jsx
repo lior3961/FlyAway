@@ -115,7 +115,9 @@ const Recommendation = () => {
 
   useEffect(() => {
     if (tripRecommendation?.answer) {
+      console.log("Raw OpenAI answer:", tripRecommendation.answer);
       const parsed = parseOpenAIResponse(tripRecommendation.answer);
+      console.log("Parsed response:", parsed);
       setParsedResponse(parsed);
     }
   }, [tripRecommendation]);
