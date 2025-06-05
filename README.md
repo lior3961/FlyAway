@@ -327,9 +327,8 @@ FlyAway uses a relational database to manage data efficiently across three prima
     #AWS CONFIGURATION
     AWS_ACCESS_KEY_ID= XXX
     AWS_SECRET_ACCESS_KEY= XXX
-    AWS_SESSION_TOKEN= XXX
-    AWS_REGION=us-east-1 or any other
-    S3_BUCKET_NAME= you bucket name
+    AWS_REGION=eu-north-1 or any other
+    S3_BUCKET_NAME= your bucket name
    ```
 
 
